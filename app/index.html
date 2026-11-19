@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Boulevard Press</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Neon Boulevard Press</h1>
+    <p class="tag">Turn your photos into a multi-panel cover poster. It all runs in this page. Nothing uploads anywhere.</p>
+  </div>
+  <div class="top-actions">
+    <button id="btn-samples" type="button">Load sample photos</button>
+    <button id="btn-shuffle" type="button">Shuffle</button>
+    <button id="btn-undo" type="button" disabled>Undo</button>
+    <button id="btn-redo" type="button" disabled>Redo</button>
+    <button id="btn-reset" type="button">Reset</button>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="tray" aria-label="Photos">
+    <h2>Photos</h2>
+    <p class="hint">Click a panel on the cover, then click a photo here to place it. Drag a panel to move its photo. Scroll over a panel to zoom it.</p>
+    <div id="tray" class="tray-grid"></div>
+    <label class="upload">
+      <span>Add your own photos</span>
+      <input id="file-input" type="file" accept="image/*" multiple>
+    </label>
+    <p class="hint">Your photos stay on your machine. The page never sends them anywhere.</p>
+    <div class="panel-tools">
+      <h2>Selected panel</h2>
+      <p id="panel-label" class="hint">No panel selected yet. Click any panel on the cover.</p>
+      <div class="row">
+        <button id="zoom-out" type="button">Zoom out</button>
+        <button id="zoom-in" type="button">Zoom in</button>
+        <button id="recenter" type="button">Recenter</button>
+      </div>
+    </div>
+  </aside>
+
+  <section class="stage-wrap" aria-label="Cover preview">
+    <div id="stage-box" class="stage-box">
+      <canvas id="stage" width="1080" height="1080"></canvas>
+    </div>
+    <p id="stage-note" class="hint">Preview at export size. What you see is what the PNG holds.</p>
+  </section>
+
+  <aside class="controls" aria-label="Cover controls">
+    <h2>Layout</h2>
+    <div id="layouts" class="chip-grid"></div>
+
+    <h2>Grade</h2>
+    <div id="grades" class="chip-grid"></div>
+
+    <h2>Words</h2>
+    <label class="field">
+      <span>Title</span>
+      <input id="in-title" type="text" maxlength="24" value="NEON BOULEVARD" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Subtitle</span>
+      <input id="in-subtitle" type="text" maxlength="48" value="chasing the last light" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Badge</span>
+      <input id="in-badge" type="text" maxlength="14" value="EST. 2026" autocomplete="off">
+    </label>
+    <div class="chip-grid" id="title-styles"></div>
+
+    <h2>Finish</h2>
+    <label class="check"><input id="ck-grain" type="checkbox" checked> <span>Film grain</span></label>
+    <label class="check"><input id="ck-vignette" type="checkbox" checked> <span>Vignette</span></label>
+    <label class="check"><input id="ck-frame" type="checkbox" checked> <span>White panel frames</span></label>
+    <label class="check"><input id="ck-halftone" type="checkbox"> <span>Halftone dots on the title block</span></label>
+
+    <h2>Export size</h2>
+    <div id="sizes" class="chip-grid"></div>
+    <button id="btn-download" type="button" class="big">Download PNG</button>
+    <p id="export-note" class="hint">Exports at 1080 by 1080, 1080 by 1350, or 1920 by 1080.</p>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>All art on this page is original. No studio logos, no official artwork, no borrowed fonts. The sample photos were made for this app.</p>
+</footer>
+
+<script type="module" src="./src/editor.js"></script>
+</body>
+</html>
