@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Boulevard Press</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Neon Boulevard Press</h1>
+  <p>Photos and a few words, laid out as a multi-panel game cover. Everything runs in this page. Nothing uploads anywhere.</p>
+</header>
+<main class="app">
+  <section class="panel" aria-label="Photos">
+    <h2>Photos</h2>
+    <div id="tray" class="tray"></div>
+    <p class="hint">Click a panel on the cover, then click a photo to fill it. Drag inside a panel to slide the photo. Scroll to zoom.</p>
+  </section>
+  <section class="stage" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080"></canvas>
+    <p id="status" role="status">Pick a panel, then a photo.</p>
+  </section>
+  <section class="panel controls" aria-label="Cover controls">
+    <h2>Layout</h2>
+    <div id="layouts" class="chips"></div>
+    <h2>Grade</h2>
+    <div id="grades" class="chips"></div>
+    <h2>Title style</h2>
+    <div id="title-styles" class="chips"></div>
+    <h2>Words</h2>
+    <label>Title <input id="title" type="text" maxlength="30" value="NEON BOULEVARD"></label>
+    <label>Subtitle <input id="subtitle" type="text" maxlength="60" value="Vice City nights, one frame at a time"></label>
+    <label>Badge <input id="badge" type="text" maxlength="12" value="VOL. 1"></label>
+    <h2>Finish</h2>
+    <label class="check"><input id="grain" type="checkbox" checked> Film grain</label>
+    <label class="check"><input id="vignette" type="checkbox" checked> Vignette</label>
+    <label class="check"><input id="halftone" type="checkbox"> Halftone dots</label>
+    <label>Export size
+      <select id="size"></select>
+    </label>
+    <div class="actions">
+      <button id="btn-undo" type="button">Undo</button>
+      <button id="btn-redo" type="button">Redo</button>
+      <button id="btn-shuffle" type="button">Shuffle</button>
+      <button id="btn-export" type="button" class="primary">Export PNG</button>
+    </div>
+  </section>
+</main>
+<script type="module" src="./src/editor.js"></script>
+</body>
+</html>
