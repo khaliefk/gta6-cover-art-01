@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Boulevard Press: Cover Maker GTA 6</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="panel" id="controls">
+    <h1>Neon Boulevard Press</h1>
+    <p class="tag">Foto kamu, caption kamu, jadi cover gaya GTA multi-panel. Semua jalan offline di browser.</p>
+
+    <h2>Foto</h2>
+    <div class="row">
+      <label class="upload">Tambah foto
+        <input id="upload" type="file" accept="image/*" multiple>
+      </label>
+      <button id="reset" type="button">Atur ulang</button>
+    </div>
+    <div id="photos" class="strip" aria-label="Foto yang tersedia"></div>
+    <p class="hint">Klik foto di atas buat nempelin ke panel yang lagi dipilih. Tiga foto sampel udah dimuat.</p>
+
+    <h2>Layout</h2>
+    <div id="layouts" class="grid"></div>
+
+    <h2>Grade warna</h2>
+    <div id="grades" class="grid"></div>
+
+    <h2>Gaya judul</h2>
+    <div id="styles" class="grid"></div>
+
+    <h2>Tulisan</h2>
+    <label>Judul
+      <input id="title" type="text" maxlength="40" value="NEON BOULEVARD">
+    </label>
+    <label>Subjudul
+      <input id="subtitle" type="text" maxlength="60" value="Vice City Nights">
+    </label>
+    <label>Tulisan pita
+      <input id="ribbon" type="text" maxlength="18" value="WANTED">
+    </label>
+
+    <h2>Panel terpilih</h2>
+    <p id="panelLabel" class="hint">Panel 1 dari 9</p>
+    <label>Zoom
+      <input id="zoom" type="range" min="1" max="3" step="0.05" value="1">
+    </label>
+    <label>Geser kiri kanan
+      <input id="panx" type="range" min="-0.5" max="0.5" step="0.01" value="0">
+    </label>
+    <label>Geser atas bawah
+      <input id="pany" type="range" min="-0.5" max="0.5" step="0.01" value="0">
+    </label>
+    <p class="hint">Klik panel di kanvas buat milih. Seret buat geser foto, scroll buat zoom.</p>
+
+    <h2>Tekstur</h2>
+    <label class="check"><input id="grain" type="checkbox" checked> Film grain</label>
+    <label class="check"><input id="vignette" type="checkbox" checked> Vignette</label>
+    <label class="check"><input id="halftone" type="checkbox"> Halftone dots</label>
+
+    <h2>Ekspor</h2>
+    <div class="row">
+      <button id="undo" type="button">Urungkan</button>
+      <button id="redo" type="button">Ulangi</button>
+      <button id="shuffle" type="button">Acak</button>
+    </div>
+    <div class="row">
+      <select id="size" aria-label="Ukuran ekspor"></select>
+      <button id="export" type="button" class="primary">Ekspor PNG</button>
+    </div>
+    <p id="status" role="status"></p>
+  </section>
+
+  <section id="stage">
+    <canvas id="cover" width="900" height="900" aria-label="Pratinjau cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>
