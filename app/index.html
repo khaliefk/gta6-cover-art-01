@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">NEON COAST</span><span class="tag">Cover Studio</span></div>
+  <p class="pitch">Your photo, a caption, a poster cover. Nothing leaves this machine.</p>
+  <div class="top-actions">
+    <button id="undo" type="button" disabled>Undo</button>
+    <button id="redo" type="button" disabled>Redo</button>
+    <button id="export" type="button" class="primary">Export PNG</button>
+  </div>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h1>Make your cover</h1>
+    <p class="hint">Three steps: pick photos, pick a layout, type a caption. Click a panel on the cover to frame it.</p>
+
+    <fieldset>
+      <legend>1. Photos</legend>
+      <label class="file">Add your photos
+        <input id="photos" type="file" accept="image/*" multiple>
+      </label>
+      <p class="small">Or use the three sample photos already loaded. Photos are read on this machine and never uploaded.</p>
+      <div class="row" id="assignPhoto" aria-label="Photo for the selected panel"></div>
+      <div class="row">
+        <button id="fillAll" type="button">Fill every panel with this photo</button>
+        <button id="shuffle" type="button">Shuffle photos</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. Layout</legend>
+      <div class="grid" id="layouts"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. Colour grade</legend>
+      <div class="grid" id="grades"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. Caption</legend>
+      <label>Title <input id="title" type="text" maxlength="24" value="NEON SHORE"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="one last summer on the coast"></label>
+      <label>Badge <input id="badge" type="text" maxlength="16" value="VICE COAST"></label>
+      <label>Heat <input id="stars" type="range" min="0" max="5" step="1" value="4"> <output id="starsOut">4 / 5</output></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. Selected panel</legend>
+      <p class="small" id="panelLabel">Panel 5 of 9</p>
+      <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.01" value="1.1"> <output id="zoomOut">110%</output></label>
+      <label>Pan left / right <input id="panx" type="range" min="-0.5" max="0.5" step="0.01" value="0"></label>
+      <label>Pan up / down <input id="pany" type="range" min="-0.5" max="0.5" step="0.01" value="0"></label>
+      <p class="small">Tip: drag the cover itself to pan the selected panel.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>6. Finish</legend>
+      <div class="grid" id="sizes"></div>
+      <label class="check"><input id="frame" type="checkbox" checked> White panel frames</label>
+      <label class="check"><input id="grain" type="checkbox" checked> Film grain</label>
+      <label class="check"><input id="halftone" type="checkbox" checked> Halftone corners</label>
+      <p id="status" role="status"></p>
+    </fieldset>
+  </section>
+  <section class="stage" id="stage" aria-label="Cover preview">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
