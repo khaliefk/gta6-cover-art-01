@@ -1,0 +1,4 @@
+out/
+node_modules/
+tools/.chrome-profile/
+tools/downloads/
