@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Lights Press — GTA 6 Cover Art Maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo" aria-hidden="true">VL</div>
+  <div class="brand">
+    <h1>Vice Lights Press</h1>
+    <p>Turn any photo into GTA-style cover art. Offline, free, no upload.</p>
+  </div>
+  <div class="top-actions">
+    <button id="undoBtn" type="button" title="Undo (Ctrl+Z)">Undo</button>
+    <button id="redoBtn" type="button" title="Redo (Ctrl+Shift+Z)">Redo</button>
+  </div>
+</header>
+
+<main class="workspace">
+  <section class="previewPane" aria-label="Cover preview">
+    <canvas id="preview" width="640" height="640"></canvas>
+    <p class="hint">Click a panel to select it. Drag to move the photo, scroll to zoom.</p>
+  </section>
+
+  <aside class="controls" aria-label="Cover controls">
+    <section class="group">
+      <h2>Layout</h2>
+      <div id="layoutBtns" class="btnGrid"></div>
+    </section>
+
+    <section class="group">
+      <h2>Grade</h2>
+      <div id="gradeBtns" class="btnGrid"></div>
+    </section>
+
+    <section class="group">
+      <h2>Title style</h2>
+      <div id="titleBtns" class="btnGrid"></div>
+    </section>
+
+    <section class="group">
+      <h2>Words</h2>
+      <label>Title
+        <input id="titleInput" type="text" value="VICE LIGHTS" maxlength="24" autocomplete="off">
+      </label>
+      <label>Subtitle
+        <input id="subtitleInput" type="text" value="A LEONIDA STORY" maxlength="40" autocomplete="off">
+      </label>
+      <label>Badge
+        <input id="badgeInput" type="text" value="EST. 2026" maxlength="20" autocomplete="off">
+      </label>
+      <label>Heat
+        <input id="heatInput" type="range" min="0" max="5" step="1" value="4">
+        <span id="heatStars" aria-hidden="true">★★★★☆</span>
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>Panels</h2>
+      <div id="panelRows"></div>
+      <label class="uploadBtn">Upload your own photo
+        <input id="uploadInput" type="file" accept="image/*">
+      </label>
+      <p class="note">Uploads stay on this machine. Pick a panel above, then upload to fill it.</p>
+    </section>
+
+    <section class="group">
+      <h2>Export</h2>
+      <label>Size
+        <select id="sizeSelect">
+          <option value="1080x1080">Square · 1080 × 1080</option>
+          <option value="1080x1350">Portrait · 1080 × 1350</option>
+          <option value="1920x1080">Wide · 1920 × 1080</option>
+        </select>
+      </label>
+      <button id="exportBtn" type="button" class="primary">Export PNG</button>
+      <button id="exportAllBtn" type="button">Export all 3 sizes</button>
+      <p class="note" id="exportNote">Ready.</p>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>Offline web app: no network requests, your photos never leave this machine.
+  Lettering uses Liberation fonts under the SIL Open Font License.
+  Not affiliated with Rockstar Games: no Rockstar artwork, logos or fonts.</p>
+</footer>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
