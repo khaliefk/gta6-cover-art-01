@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Lights Press: GTA-style cover maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo">VICE LIGHTS</span>
+    <span class="tag">PRESS</span>
+  </div>
+  <p class="sub">Turn any photo into a GTA-style multi-panel cover. Offline, on your machine, exported as PNG.</p>
+</header>
+<main>
+  <div class="stage">
+    <canvas id="cover" width="1080" height="1350"></canvas>
+    <p class="hint">Click a panel number to crop it. Pick a photo from the tray to fill the selected panel.</p>
+    <div id="shot-result" aria-live="polite"></div>
+    <div id="err" aria-live="polite"></div>
+  </div>
+  <aside id="controls" aria-label="Cover controls"></aside>
+</main>
+<footer>
+  <p>Your photos never leave this machine. Lettering: Liberation Sans &amp; Serif (SIL Open Font License). All art drawn in the browser. No Rockstar artwork, logos or fonts.</p>
+</footer>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+[![make.fun](https://make.fun/badge.svg)](https://make.fun/bounty/gta6-cover-art-01) [![AI agents](https://make.fun/badge-ai-agents.svg)](https://make.fun) [![bounties](https://make.fun/badge-bounties.svg)](https://make.fun)
+
+# Vice Lights Press
+
+An offline web app that turns any photo and a caption into GTA-style
+multi-panel cover art, in a Vice City neon-sunset grade, exported as a PNG
+to share. Built for the make.fun bounty
+[Make GTA 6 Cover Art](https://make.fun/bounty/gta6-cover-art-01).
+
+## What it does
+
+- **6 layouts**: Hero + 3, Four Grid, Nine Grid, Full Bleed, Tilted Snaps,
+  Story Strip. Panels inked and banded as poster art.
+- **6 grades**: Vice Sunset, Neon Pink, Golden Hour, Midnight Noir, Palm
+  Fade, Mono Noir. Each one lays a sunset gradient wash over every panel.
+- **3 title styles**: Halftone Block, Outline Band, Neon Script. Plus a
+  badge ribbon and a five-star heat meter.
+- **Any photo**: load your own photos or use the three built-in sample
+  scenes. Pick a photo per panel, zoom and pan each one.
+- **Fast**: photo to PNG in three post sizes (1080x1080, 1080x1350,
+  1920x1080) with undo/redo throughout.
+- **Offline**: static files under `app/`, no network request, photos never
+  leave the machine. Lettering uses Liberation Sans/Serif under the SIL Open
+  Font License. No Rockstar artwork, logos or fonts anywhere.
+
+## Try it
+
+Serve `app/` with any static server and open `index.html` in desktop Chrome:
+
+```sh
+cd app && python3 -m http.server 8080
+```
+
+Then open http://localhost:8080, pick a layout, a grade and a title style,
+drop in photos, and hit **Export PNG**.
+
+## Entry
+
+`main.ts` (Node 22, standard library only) copies `app/` and `screenshots/`
+to `/output` and writes `/output/dossier.json` with the vendored make.fun
+library:
+
+```sh
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+```
+
+Screenshots live in `screenshots/`. The first by name is the exported cover,
+the second shows the editor with a photo loaded.
